@@ -1,27 +1,33 @@
 window.onload = function () {
 
-  let url = 'https://pokeapi.co/api/v2/pokemon/1';
+  //höchster index ist 898
+  let url = 'https://pokeapi.co/api/v2/pokemon/';
   fetch(url)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      document.getElementById('image').src = data.sprites.back_default;
+      readObject(data);
     });
-
-    const pokeInnerHTML = `
-        <div class="img-container">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" alt="${name}" />
-        </div>
-        <div class="info">
-            
-        </div>
-    `;
     document.getElementById('abc').innerHTML = pokeInnerHTML;
 };
 
+function readObject(data){
+  let row = '';
+  let index = 1;
+  data.results.forEach((character) => {
+    row += buildTableEntry(character, index); 
+    index++;
+  });
+  document.querySelector('#img_test').innerHTML = row;
+}
 
 
-
-
-
-//https://pokeapi.co/api/v2/pokemon
+function buildTableEntry(character, index) {
+  console.log("it works")
+  return (img = `
+  <div class="img-container">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png" alt="${name}" height="200" width="200"/>
+      <p>${character.name}</p>
+  </div>
+`);
+};

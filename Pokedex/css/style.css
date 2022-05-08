@@ -1,3 +1,18 @@
-#image{
-    
+body{
+    background-color: tomato;
+}
+
+.img-container{
+    border: solid black 2px;
+    margin: 10px;
+    text-align: center;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.img-container p{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    text-decoration: underline;
+    color: aliceblue;
 }
