@@ -2,17 +2,21 @@ body{
     background-color: tomato;
 }
 
-.img-container{
-    border: solid black 2px;
-    margin: 10px;
-    text-align: center;
-    width: 50%;
-    border-radius: 10px;
+.card-elements{
+    background-image: url("Pokedex/images/card-background.png");
+    border: solid 3px rgb(223, 223, 53);
+    border-radius: 0pc;
 }
 
-.img-container p{
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
-    text-decoration: underline;
-    color: aliceblue;
+.card-head{
+    margin-top: 10px;
+}
+
+.pokemon-name{
+    padding-left: 15%;
+}
+
+.pokemon-index{
+    text-align: right;
+    padding-right: 10%;
 }
