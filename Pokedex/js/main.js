@@ -1,8 +1,7 @@
-
 window.onload = function() {
 
   //https://pokeapi.co/api/v2/pokemon/
-  //höchster index = 898
+  //hÃ¶chster index = 898
   let url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=9';
   //let url = 'https://pokeapi.co/api/v2/pokemon/2';
 
@@ -17,19 +16,16 @@ window.onload = function() {
 async function readObject(data){
   let row = '';
   let index = 1;
-  await data.results.forEach(async function(character) {
-    row += await buildTableEntry(character, index); 
-    console.log(row)
+  for(const character of data.results) {
+    row += await buildTableEntry(character, index);
     index++;
-  });
-  console.log("final row",row)
+  };
   document.querySelector('#row-pokemon').innerHTML = row;
-    console.log("added rows")
 }
 
 
 async function buildTableEntry(character, index) {
-  
+
   let url = `https://pokeapi.co/api/v2/pokemon/${index}/`;
   var hp = 0;
   data = await (await fetch(url)).json()
@@ -41,10 +37,10 @@ async function buildTableEntry(character, index) {
       <br />
       <div class='card card-elements'>
         <div class='row card-head'>
-          <div class='col-6 pokemon-name'> 
+          <div class='col-6 pokemon-name'>
             ${character.name}
           </div>
-          <div class='col-6 pokemon-index'> 
+          <div class='col-6 pokemon-index'>
             ${hp}
           </div>
         </div>
