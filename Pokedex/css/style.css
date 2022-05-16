@@ -3,20 +3,50 @@ body{
 }
 
 .card-elements{
-    background-image: url("Pokedex/images/card-background.png");
-    border: solid 3px rgb(223, 223, 53);
-    border-radius: 0pc;
+    background-image: url("../images/card-background.png");
+    border: solid 7px #fbe06f;
+    border-radius: 10px;
+    width: 345px;
+    height: 455px;
 }
 
 .card-head{
     margin-top: 10px;
 }
 
-.pokemon-name{
-    padding-left: 15%;
+.card-body{
+    margin-left: 12px;
 }
 
-.pokemon-index{
+.pokemon-name{
+    padding-left: 15%;
+    font-weight: bold;
+}
+
+.pokemon-hp{
     text-align: right;
     padding-right: 10%;
+}
+
+.card-img-top{
+    height: 250px;
+    width: 300px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.card-info{
+    font-size: 10px;
+}
+
+.column-info{
+    width: 131px;
+}
+.info-num{
+    font-size: 15px;
+}
+
+#hp{
+    font-size: 10px;
+    font-weight: bolder;
 }
