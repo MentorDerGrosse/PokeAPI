@@ -18,9 +18,11 @@ async function readObject(data){
   let index = 1;
   for(const character of data.results) {
     row += await buildTableEntry(character, index);
+    console.log(element);
     index++;
   };
   document.querySelector('#row-pokemon').innerHTML = row;
+ 
 }
 
 
@@ -38,11 +40,15 @@ async function buildTableEntry(character, index) {
   speacialDefense = data.stats[4].base_stat;
   speed = data.stats[5].base_stat;
   weight = data.weight;
+  element = data.types[0].type.name;
+  
+
+
 
     let cardElement = `
     <div class='col-md-4'>
       <br />
-      <div class='card card-elements'>
+      <div class='card card-elements' id='background'>
         <div class='row card-head'>
           <div class='col-6 pokemon-name'>
             ${character.name}
@@ -89,5 +95,8 @@ async function buildTableEntry(character, index) {
     </div>
   `;
 
+  
+
   return cardElement;
+  
 };
