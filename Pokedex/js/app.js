@@ -1,4 +1,3 @@
-// DOM Objects
 const mainScreen = document.querySelector('.main-screen');
 const pokeName = document.querySelector('.poke-name');
 const pokeId = document.querySelector('.poke-id');
