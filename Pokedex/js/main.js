@@ -1,8 +1,13 @@
-window.onload = function() {
 
+  var start = 0;
+  var ende = 15;
+
+window.onload = function starting() {
+  console.log(start);
+  localStorage.clear();
   //https://pokeapi.co/api/v2/pokemon/
   //höchster index = 898
-  let url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=27';
+  let url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100';
   //let url = 'https://pokeapi.co/api/v2/pokemon/2';
 
   fetch(url)
@@ -17,9 +22,11 @@ async function readObject(data){
   let row = '';
   let index = 1;
   for(const character of data.results) {
+    if(start <= index && index <= ende) {
     row += await buildTableEntry(character, index);
     console.log(element);
     index++;
+    }
   };
   document.querySelector('#row-pokemon').innerHTML = row;
  
@@ -41,8 +48,27 @@ async function buildTableEntry(character, index) {
   speed = data.stats[5].base_stat;
   weight = data.weight;
   element = data.types[0].type.name;
+
   
 
+  class Pokemon {
+    constructor (name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element) {
+      this.name = name;
+      this.hp = hp;
+      this.attack = attack;
+      this.defense = defense;
+      this.specialAttack = specialAttack;
+      this.speacialDefense = speacialDefense;
+      this.speed = speed;
+      this.weight = weight;
+      this.element = element;
+    }
+  }
+
+  poke = new Pokemon(data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
+
+  localStorage.setItem(index, JSON.stringify(poke));
+  
 
 
     let cardElement = `
@@ -100,3 +126,9 @@ async function buildTableEntry(character, index) {
   return cardElement;
   
 };
+
+function up(data) {
+  start = start + 15;
+  ende = ende + 15;
+  readObject(data);
+}
