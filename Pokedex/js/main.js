@@ -139,11 +139,10 @@ function savePokemons(character, index){
 }
 
 function nextPage(){
-  nextIndex = currentIndex + 15;
+  let nextIndex = currentIndex + 15;
   document.querySelector('#row-pokemon').innerHTML = "";
   for(i = currentIndex+1; i<=nextIndex; i++){
     poke = JSON.parse(localStorage.getItem(i));
-    console.log(i, nextIndex);
     let cardElement = `
     <div class='col-md-4'>
       <br />
@@ -196,4 +195,65 @@ function nextPage(){
   document.querySelector('#row-pokemon').innerHTML += cardElement;
   }
   currentIndex += 15;
+};
+
+function previousPage(){
+  if(currentIndex > 15){
+    let previousIndex = currentIndex - 30;
+    document.querySelector('#row-pokemon').innerHTML = "";
+    for(i = previousIndex+1; i<=currentIndex; i++){
+      poke = JSON.parse(localStorage.getItem(i));
+      let cardElement = `
+      <div class='col-md-4'>
+        <br />
+        <div class='card card-elements' id='background'>
+          <div class='row card-head'>
+            <div class='col-6 pokemon-name'>
+              ${poke.name}
+            </div>
+            <div class='col-6 pokemon-hp'>
+              <span id='hp'>HP</span>${poke.hp}
+            </div>
+          </div>
+  
+          <img
+            class='card-img-top'
+            src= "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png"
+            alt='${poke.name}'
+          />
+          <div class='card-body'>
+            <div class='row card-bottom'>
+              <div class='col-6 column-info text-end'>
+                <span class="card-info">Attack: </span> <span class="info-num">${poke.attack}</span>
+              </div>
+            <div class='col-6 column-info text-end'>
+              <span class="card-info">Defense: </span> <span class="info-num">${poke.defense}</span>
+            </div>
+  
+            <div class='row card-bottom'>
+              <div class='col-6 column-info text-end'>
+                <span class="card-info">Speacial Attack: </span> <span class="info-num">${poke.specialAttack}</span>
+              </div>
+            <div class='col-6 column-info text-end'>
+              <span class="card-info">Speacial Defense: </span> <span class="info-num">${poke.speacialDefense}</span>
+            </div>
+  
+            <div class='row card-bottom'>
+              <div class='col-6 column-info text-end'>
+                <span class="card-info">Speed: </span> <span class="info-num">${poke.speed}</span>
+              </div>
+            <div class='col-6 column-info text-end'>
+              <span class="card-info">Weight: </span> <span class="info-num">${poke.weight}</span>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.querySelector('#row-pokemon').innerHTML += cardElement;
+    }
+    currentIndex -= 15;
+  }
 };
