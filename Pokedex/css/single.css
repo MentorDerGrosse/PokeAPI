@@ -3,10 +3,25 @@
     margin: 0;
     padding: 0;
   }
+
+  @keyframes change {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
   
   body {
     font-family: 'Common Pixel', sans-serif;
     justify-content: center;
+    background: linear-gradient(-45deg, rgb(69, 31, 173), rgb(187, 11, 34),rgb(14, 42, 168), rgb(31, 199, 82));
+    background-size: 400% 400%;
+    animation: change 5s ease infinite;
   }
   
   .pokedex {

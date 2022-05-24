@@ -105,6 +105,8 @@ const handleListItemClick = (e) => {
   const listItem = e.target;
   if (!listItem.textContent) return;
 
+  
+
   const id = listItem.textContent.split('.')[0];
   fetchPokeData(id);
 };

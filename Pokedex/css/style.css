@@ -17,14 +17,13 @@ body {
 }
 
 .container{
-  background-color: black;
+  background-color: rgb(219, 218, 218);
   padding: 20px;
   border-radius: 10px;
 }
 
 .card-elements{
     background-image: url("../images/card-background.png");
-    border: solid 7px #fbe06f;
     border-radius: 10px;
     width: 345px;
     height: 455px;
@@ -71,93 +70,42 @@ body {
     font-weight: bolder;
 }
 
+.hide {
+  display: none;
+}
 
- /*Navigation Bar*/
- .navigation {
-    padding-block: 20px;
-    padding-inline: 5px;
-    margin-left: 2rem;
-    letter-spacing: 1.5px;
-    font-family: sans-serif;
-    color: black;
-    font-weight: bold;
-  }
-  .links {
-    display: inline-block;
-  }
-  .flex {
-    display: flex;
-    gap: var(--gap, 1rem);
-  }
-  .logo {
-    margin: -0.2rem 0 0 2rem;
-  }
-  .primary-header {
-    align-items: center;
-    justify-content: space-between;
-  }
-  .mobile-nav-toggle {
-    visibility: hidden;
-  }
-  .primary-navigation {
-    list-style: none;
-    padding-bottom: 0.1rem;
-    padding-top: 1.5rem;
-    padding-inline: 10rem;
-    margin-right: 2rem;
-    height: 73px;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  }
-  .primary-navigation a {
-    text-decoration: none;
-  }
-  
-  @media (max-width: 49em) {
-    .primary-navigation {
-      --gap: 2em;
-      position: fixed;
-      z-index: 100;
-      inset: 0 0 0 30%;
-      flex-direction: column;
-      padding: 10rem 5em;
-      background: black;
-      transform: translateX(100%);
-      transition: transform 350ms ease-out;
-      height: 100%;
-    }
-    @supports (backdrop-filter: blur(1rem)) {
-      .primary-navigation {
-        background: none;
-        background: hsl(0, 0%, 0% /0.1) !important;
-        backdrop-filter: blur(1rem);
-      }
-      .primary-navigation a:hover{
-        border-bottom: black solid 3px;
-      }
-    }
-    .primary-navigation[data-visible="true"] {
-      transform: translateX(0%);
-    }
-    .mobile-nav-toggle {
-      visibility: unset;
-      position: absolute;
-      z-index: 999;
-      border: 0;
-      background: url("../images/icon-menu.svg");
-      background-repeat: no-repeat;
-      width: 1.5rem;
-      aspect-ratio: 1 / 1;
-      top: 2rem;
-      right: 2rem;
-    }
-    .mobile-nav-toggle[aria-expanded="true"] {
-      background: url("../images/icon-close.svg");
-      background-repeat: no-repeat;
-    }
-  }
-  @media (min-width: 49em) and (max-width: 62em) {
-    .primary-navigation {
-      padding-block: 1.5rem;
-      padding-inline: 2.3rem;
-    }
-  }
+.normal { border: solid 7px #BABAAE; }
+
+.fighting { border: solid 7px #A75543; }
+
+.flying { border: solid 7px #78A2FF; }
+
+.poison { border: solid 7px #A95CA0; }
+
+.ground { border: solid 7px #EECC55; }
+
+.rock { border: solid 7px #CCBD72; }
+
+.bug { border: solid 7px #C2D21E; }
+
+.ghost { border: solid 7px #7975D7; }
+
+.steel { border: solid 7px #C4C2DB; }
+
+.fire { border: solid 7px #FA5643; }
+
+.water { border: solid 7px #56ADFF; }
+
+.grass { border: solid 7px #8CD750; }
+
+.electric { border: solid 7px #FDE139; }
+
+.psychic { border: solid 7px #FA65B4; }
+
+.ice { border: solid 7px #96F1FF; }
+
+.dragon { border: solid 7px #8673FF; }
+
+.dark { border: solid 7px#8D6855; }
+
+.fairy { border: solid 7px #F9AEFF; }
