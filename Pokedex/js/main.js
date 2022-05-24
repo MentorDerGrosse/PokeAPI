@@ -168,3 +168,7 @@ function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense,
   `;
   return cardElement;
 };
+
+function moving_Image() {
+  
+}
