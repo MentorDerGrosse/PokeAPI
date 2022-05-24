@@ -130,7 +130,7 @@ function savePokemons(character, index){
       defense = data.stats[2].base_stat;
       specialAttack = data.stats[3].base_stat;
       speacialDefense = data.stats[4].base_stat;
-        speed = data.stats[5].base_stat;
+      speed = data.stats[5].base_stat;
       weight = data.weight;
       element = data.types[0].type.name;
       poke = new Pokemon(data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
