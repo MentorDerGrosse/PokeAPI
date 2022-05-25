@@ -1,5 +1,36 @@
+const searchInput = document.querySelector("[data-search");
+
+let pokemonArr = [];
+
+searchInput.addEventListener("input", (e) => {
+  const valueSearch = e.target.value;
+  const filtered = pokemonArr.filter((pok) => {
+  return pok.name.startsWith(valueSearch);
+  });
+  document.getElementById('row-pokemon').innerHTML = ' ';
+  if(valueSearch != ' ') {
+  filtered.forEach((ele) => {
+    let card = buildCard(ele.name, ele.hp, ele.index, ele.attack, ele.defense, ele.specialAttack, ele.speacialDefense, ele.speed, ele.weight, ele.element);    
+    document.getElementById('row-pokemon').innerHTML += card;
+  });
+} else {
+  for(i = 0; i<=898; i++) {
+    if(localStorage.getItem(i).index < 15) {
+      let card = localStorage.getItem(i);
+      buildCard(card.name, card.hp, card.index, card.attack, card.defense, card.specialAttack, card.speacialDefense, card.speed, card.weight, card.element);
+    }
+  }
+
+}
+
+
+});
+let url;
+
+
 class Pokemon {
-  constructor (name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element) {
+  constructor (index, name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element) {
+    this.index = index;
     this.name = name;
     this.hp = hp;
     this.attack = attack;
@@ -19,7 +50,7 @@ window.onload = function starting() {
   localStorage.clear();
   //https://pokeapi.co/api/v2/pokemon/
   //höchster index = 898
-  let url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898';
+  url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898';
   //let url = 'https://pokeapi.co/api/v2/pokemon/2';
 
   fetch(url)
@@ -29,6 +60,22 @@ window.onload = function starting() {
       readObject(data);
     });
 };
+async function buildNull(data){
+  localStorage.clear();
+  let row = '';
+  let index = 1;
+  for(const character of data) {
+    if(index <= 15) {
+    row += await buildTableEntry(character, index);
+    }
+    if(index > 15){
+      savePokemons(character, index);
+    }
+    index++;
+  };
+  document.querySelector('#row-pokemon').innerHTML = row;
+ 
+}
 
 async function readObject(data){
   let row = '';
@@ -62,7 +109,8 @@ async function buildTableEntry(character, index) {
   weight = data.weight;
   element = data.types[0].type.name;
 
-  poke = new Pokemon(data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
+  poke = new Pokemon(index, data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
+  pokemonArr.push(poke);
 
   localStorage.setItem(index, JSON.stringify(poke));
 
@@ -86,7 +134,8 @@ function savePokemons(character, index){
       speed = data.stats[5].base_stat;
       weight = data.weight;
       element = data.types[0].type.name;
-      poke = new Pokemon(data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
+      poke = new Pokemon(index, data.name, hp, attack, defense, specialAttack, speacialDefense, speed, weight, element);
+      pokemonArr.push(poke);
       localStorage.setItem(index, JSON.stringify(poke));
     })
 }
@@ -118,6 +167,7 @@ function previousPage(){
 };
 
 function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense, speed, weight, bgColor){
+  
   let cardElement = `
       <div class='card card-elements ${bgColor}' id='background'>
         <div class='card-head'>
@@ -163,6 +213,4 @@ function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense,
   return cardElement;
 };
 
-function moving_Image() {
-  
-}
+
