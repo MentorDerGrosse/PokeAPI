@@ -193,3 +193,7 @@ body {
   line-height: 40px;
   width: 0px;
 }
+
+#logo-search {
+  width: 60px;
+}
