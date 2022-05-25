@@ -5,25 +5,24 @@ let pokemonArr = [];
 searchInput.addEventListener("input", (e) => {
   const valueSearch = e.target.value;
   const filtered = pokemonArr.filter((pok) => {
-  return pok.name.startsWith(valueSearch);
+    console.log(pok)
+  return pok.name.startsWith(valueSearch) || pok.index == valueSearch;
   });
   document.getElementById('row-pokemon').innerHTML = ' ';
-  if(valueSearch != ' ') {
+  if(valueSearch != '') {
   filtered.forEach((ele) => {
     let card = buildCard(ele.name, ele.hp, ele.index, ele.attack, ele.defense, ele.specialAttack, ele.speacialDefense, ele.speed, ele.weight, ele.element);    
     document.getElementById('row-pokemon').innerHTML += card;
   });
 } else {
-  for(i = 0; i<=898; i++) {
-    if(localStorage.getItem(i).index < 15) {
-      let card = localStorage.getItem(i);
-      buildCard(card.name, card.hp, card.index, card.attack, card.defense, card.specialAttack, card.speacialDefense, card.speed, card.weight, card.element);
+  for(i = 1; i<=898; i++) {
+    if(JSON.parse(localStorage.getItem(i)).index < 16) {
+      let card = JSON.parse(localStorage.getItem(i));
+      let cards = buildCard(card.name, card.hp, card.index, card.attack, card.defense, card.specialAttack, card.speacialDefense, card.speed, card.weight, card.element);
+      document.getElementById('row-pokemon').innerHTML += cards;
     }
   }
-
 }
-
-
 });
 let url;
 
@@ -125,7 +124,6 @@ function savePokemons(character, index){
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       hp = data.stats[0].base_stat;
       attack = data.stats[1].base_stat;
       defense = data.stats[2].base_stat;
