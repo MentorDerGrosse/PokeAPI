@@ -19,9 +19,23 @@
   body {
     font-family: 'Common Pixel', sans-serif;
     justify-content: center;
-    background: linear-gradient(-45deg, rgb(69, 31, 173), rgb(187, 11, 34),rgb(14, 42, 168), rgb(31, 199, 82));
-    background-size: 400% 400%;
-    animation: change 5s ease infinite;
+    /*background: linear-gradient(-45deg, rgb(69, 31, 173), rgb(187, 11, 34),rgb(14, 42, 168), rgb(31, 199, 82));*/
+    background: url("../images/single-background.png");
+    background-size: 100vw 100vh;
+    /*background-size: 400% 400%;*/
+    /*animation: change 15s ease infinite;*/
+  }
+
+  .pokedex-container{
+    width: 50%;
+    margin: auto;
+  }
+
+  .button-random{
+    margin-left: 40%;
+  }
+  .btn-r{
+    padding: 10px;
   }
   
   .pokedex {
@@ -129,8 +143,7 @@
   }
   
   .screen__image {
-    display: flex;
-    justify-content: space-around;
+    align-items: center;
   }
   
   .poke-front-image,

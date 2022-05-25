@@ -77,6 +77,7 @@ function savePokemons(character, index){
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       hp = data.stats[0].base_stat;
       attack = data.stats[1].base_stat;
       defense = data.stats[2].base_stat;
@@ -118,18 +119,12 @@ function previousPage(){
 
 function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense, speed, weight, bgColor){
   let cardElement = `
-    <div class='col-md-4'>
-      <br />
-      <div class='card card-elements  ${bgColor}' id='background'>
-        <div class='row card-head'>
-          <div class='col-6 pokemon-name'>
-            ${name}
-          </div>
-          <div class='col-6 pokemon-hp'>
-            <span id='hp'>HP</span>${hp}
-          </div>
+      <div class='card card-elements ${bgColor}' id='background'>
+        <div class='card-head'>
+        <div>
+        <span class="card-name">${name}</span>${hp}<span class='card-hp'>HP</span>
         </div>
-
+        </div>
         <img
           class='card-img-top'
           src= "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png"
@@ -151,7 +146,7 @@ function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense,
           <div class='col-6 column-info text-end'>
             <span class="card-info">Speacial Defense: </span> <span class="info-num">${speacialDefense}</span>
           </div>
-
+          </div>
           <div class='row card-bottom'>
             <div class='col-6 column-info text-end'>
               <span class="card-info">Speed: </span> <span class="info-num">${speed}</span>
@@ -163,7 +158,6 @@ function buildCard(name, hp, i, attack, defense, specialAttack, speacialDefense,
         </div>
         </div>
         </div>
-      </div>
       </div>
   `;
   return cardElement;

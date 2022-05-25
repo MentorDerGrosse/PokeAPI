@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
+    <script src="js/nav.js"></script>
 
     <title>PokeDex</title>
 </head>
@@ -19,34 +20,36 @@
         <img src="images/poke.png" alt="logo" style="height: 100px" />
       </a>
     </div>
-    <button class="mobile-nav-toggle" aria-expanded="false"></button>
+    <button class="mobile-nav-toggle" aria-expanded="false" onclick="naviToggle()"></button>
 
     <nav>
       <ul
-        id="primaray-navigation"
+        id="primary-navigation"
         data-visible="false"
         class="primary-navigation flex"
       >
         <li>
-         <a href="#" class="navigation">INFORMATION</a>
+          <a href="info.html" class="navigation">INFORMATION</a>
         </li>
         <li>
-          <a href="#" class="navigation">POKE-DEX</a>
+          <a href="singlechar.html" class="navigation">POKE-DEX</a>
         </li>
         <li>
-          <a href="#" class="navigation">CARDS</a>
+          <a href="multiplechar.html" class="navigation">CARDS</a>
         </li>
       </ul>
     </nav>
   </header>
 
-    <div class="container">
-        <div id="row-pokemon" class="row mb-3"></div>
-        <div id="buttons" class=" text-center">
-          <button onclick="previousPage()">PREV</button>
-          <button onclick="nextPage()">NEXT</button>
-        </div>
-    </div> 
+  <div id="card-container">
+    
+      <div id="row-pokemon" class="row mb-3"></div>
+      <div id="buttons" class=" text-center">
+        <button onclick="previousPage()">PREV</button>
+        <button onclick="nextPage()">NEXT</button>
+    
+  </div>
+  </div> 
     <script src="js/main.js"></script>
 </body>
 </html>

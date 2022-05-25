@@ -82,8 +82,7 @@ const fetchPokeData = id => {
       pokeId.textContent = '#' + data['id'].toString().padStart(3, '0');
       pokeWeight.textContent = data['weight'];
       pokeHeight.textContent = data['height'];
-      pokeFrontImage.src = data['sprites']['front_default'] || '';
-      pokeBackImage.src = data['sprites']['back_default'] || '';
+      pokeFrontImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
     });
 };
 
