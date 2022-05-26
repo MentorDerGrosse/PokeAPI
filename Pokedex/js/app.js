@@ -53,15 +53,15 @@ function fetchPokeList(url) {
           const { name, url } = resultData;
           const urlArray = url.split('/');
           const id = urlArray[urlArray.length - 2];
-          pokeListItem.textContent = id + '. ' + capitalize(name);
+          pokeListItem.innerHTML = id + '. ' + capitalize(name);
         } else {
-          pokeListItem.textContent = '';
+          pokeListItem.innerHTML = '';
         }
       }
     });
 };
 
-const fetchPokeData = id => {
+function fetchPokeData (id) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     .then(res => res.json())
     .then(data => {
@@ -73,19 +73,19 @@ const fetchPokeData = id => {
       pokeTypeOne.textContent = capitalize(dataFirstType['type']['name']);
       if (dataSecondType) {
         pokeTypeTwo.classList.remove('hide');
-        pokeTypeTwo.textContent = capitalize(dataSecondType['type']['name']);
+        pokeTypeTwo.innerHTML = capitalize(dataSecondType['type']['name']);
       } else {
         pokeTypeTwo.classList.add('hide');
-        pokeTypeTwo.textContent = '';
+        pokeTypeTwo.innerHTML = '';
       }
       mainScreen.classList.add(dataFirstType['type']['name']);
 
-      pokeName.textContent = capitalize(data['name']);
-      pokeId.textContent = '#' + data['id'].toString().padStart(3, '0');
-      pokeAttack.textContent = data.stats[1].base_stat;
-      pokeDefense.textContent = data.stats[2].base_stat;
-      pokeWeight.textContent = data['weight'];
-      pokeHeight.textContent = data['height'];
+      pokeName.innerHTML = capitalize(data['name']);
+      pokeId.innerHTML = '#' + data['id'].toString().padStart(3, '0');
+      pokeAttack.innerHTML = data.stats[1].base_stat;
+      pokeDefense.innerHTML = data.stats[2].base_stat;
+      pokeWeight.innerHTML = data['weight'];
+      pokeHeight.innerHTML = data['height'];
       pokeFrontImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
     });
 };
