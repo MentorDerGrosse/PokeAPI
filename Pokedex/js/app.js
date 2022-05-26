@@ -5,6 +5,8 @@ const pokeFrontImage = document.querySelector('.poke-front-image');
 const pokeBackImage = document.querySelector('.poke-back-image');
 const pokeTypeOne = document.querySelector('.poke-type-one');
 const pokeTypeTwo = document.querySelector('.poke-type-two');
+const pokeAttack = document.querySelector('.poke-attack');
+const pokeDefense = document.querySelector('.poke-defense');
 const pokeWeight = document.querySelector('.poke-weight');
 const pokeHeight = document.querySelector('.poke-height');
 const pokeListItems = document.querySelectorAll('.list-item');
@@ -35,7 +37,7 @@ const resetScreen = () => {
   }
 };
 
-const fetchPokeList = url => {
+function fetchPokeList(url) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -80,6 +82,8 @@ const fetchPokeData = id => {
 
       pokeName.textContent = capitalize(data['name']);
       pokeId.textContent = '#' + data['id'].toString().padStart(3, '0');
+      pokeAttack.textContent = data.stats[1].base_stat;
+      pokeDefense.textContent = data.stats[2].base_stat;
       pokeWeight.textContent = data['weight'];
       pokeHeight.textContent = data['height'];
       pokeFrontImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
@@ -117,6 +121,12 @@ rightButton.addEventListener('click', handleRightButtonClick);
 for (const pokeListItem of pokeListItems) {
   pokeListItem.addEventListener('click', handleListItemClick);
 }
+
+function randomPokemon(){
+let randomId = Math.floor(Math.random() * 898) + 1;
+console.log(randomId);
+fetchPokeData(randomId);
+};
 
 
 // initialize App

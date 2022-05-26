@@ -9,7 +9,24 @@ searchInput.addEventListener("input", (e) => {
   return pok.name.startsWith(valueSearch) || pok.index == valueSearch;
   });
   document.getElementById('row-pokemon').innerHTML = ' ';
-  if(valueSearch != '') {
+  if(filtered.length == 0){
+    let cardElement = `
+    <div class='card card-elements electric' id='background'>
+    <img
+      class='card-img-top no-data-found'
+      src= "images/sad-pikachu.png"
+      alt='sad-pikachu'
+    />
+    <div class='card-body'>
+      <h4>No Data Was Found :(</h4>
+      <h5>
+        Your input might be wrong   Please try again!
+      </h5>
+    </div>
+  </div>
+  `;
+  document.getElementById('row-pokemon').innerHTML = cardElement;
+  } else if(valueSearch != '') {
   filtered.forEach((ele) => {
     let card = buildCard(ele.name, ele.hp, ele.index, ele.attack, ele.defense, ele.specialAttack, ele.speacialDefense, ele.speed, ele.weight, ele.element);    
     document.getElementById('row-pokemon').innerHTML += card;

@@ -10,6 +10,9 @@
     <link rel="icon" href="images/poke.png">
   <link rel="stylesheet" href="css/single.css">
   <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
   <script src="js/nav.js"></script>
   <link rel="stylesheet" href="css/nav.css">
   <title>Pokedex - Single Char</title>
@@ -39,10 +42,16 @@
         <li>
           <a href="multiplechar.html" class="navigation">CARDS</a>
         </li>
+        <li>
+          <a href="quiz.html" class="navigation">QUIZ</a>
+        </li>
       </ul>
     </nav>
   </header>
   <div class="pokedex-container">
+    <div class="button-random">
+      <button class="btn-r" onclick="randomPokemon()">Random Pokemon</button>
+    </div>
     <div class="pokedex">
       <div class="left-container">
         <div class="left-container__top-section">
@@ -63,7 +72,22 @@
                     <span class="poke-id"></span>
                   </div>
                   <div class="screen__image">
-                    <img src="" class="poke-front-image" alt="front">
+                    <div class="row">
+                      <div class="col-5">
+                        <img src="" class="poke-front-image" alt="front">
+                      </div>
+                      <div class="col-7">
+                        <div class="screen__stats">
+                          <p class="stats__attack">
+                            attack: <span class="poke-attack"></span>
+                          </p>
+                          <p class="stats__defense">
+                            defense: <span class="poke-defense"></span>
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                   <div class="screen__description">
                     <div class="stats__types">
@@ -132,9 +156,6 @@
           <div class="right-button">Next</div>
         </div>
       </div>
-    </div>
-    <div class="button-random">
-      <button class="btn-r">Random Pokemon</button>
     </div>
   </div>
 <script src="js/app.js"></script>

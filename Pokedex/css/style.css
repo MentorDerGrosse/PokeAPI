@@ -14,6 +14,8 @@ body {
  /*background: linear-gradient(-45deg, rgb(69, 31, 173), rgb(187, 11, 34),rgb(14, 42, 168), rgb(31, 199, 82));*/
  background-size: 400% 400%;
  animation: change 5s ease infinite;
+ background-color: #FF6363;
+ /*#FF4949*/
 }
 
 .card-elements{
@@ -30,7 +32,8 @@ body {
   margin: auto;
   padding-left: 34px;
   padding-right: 20px;
-  background-color: grey;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, .4);
   padding-top: 20px;
   border-radius: 10px;
 }
@@ -81,6 +84,12 @@ body {
 
 .hide {
   display: none;
+}
+
+.no-data-found{
+  border: solid 3px black;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 1200px) {
