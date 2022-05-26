@@ -1,21 +1,7 @@
-@keyframes change {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-
 body {
- /*background: linear-gradient(-45deg, rgb(69, 31, 173), rgb(187, 11, 34),rgb(14, 42, 168), rgb(31, 199, 82));*/
  background-size: 400% 400%;
  animation: change 5s ease infinite;
  background-color: #FF6363;
- /*#FF4949*/
 }
 
 .card-elements{
@@ -36,6 +22,19 @@ body {
   background-color: rgba(0, 0, 0, .4);
   padding-top: 20px;
   border-radius: 10px;
+}
+
+.but{
+  padding: 10px 20px;
+  border-radius: 900000px;
+  font-family: sans-serif;
+  background-color: #ff1c1c;
+  color: white;
+  font-weight: bolder;
+}
+
+.but:hover{
+  background-color: #941111;
 }
 
 .container{
@@ -109,9 +108,6 @@ body {
     width: 420px;
   }
 }
-
-
-
 
 .normal { border: solid 7px #BABAAE; }
 
@@ -208,3 +204,28 @@ body {
 #logo-search {
   width: 60px;
 }
+
+@media screen and (max-width:615px) {
+  .search-box:hover>.search-btn {
+    position:absolute;
+    top:15%;
+    right: 4%;
+  }
+  .search-btn {
+    position: absolute;
+    top:15%;
+    right: 4%;
+  }
+  .search-box {
+    height: 56px;
+  }
+  .search-box:hover{
+    height: 60px;
+  }
+  .search-box:focus {
+    height: 60px;
+  }
+  .search-box:focus-visible {
+    height: 60px;
+  }
+} 

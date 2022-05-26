@@ -42,13 +42,22 @@
     </nav>
   </header>
 
-  <div class="quiz-container">
-    <span id="quiz-nr">Question 1: </span> <span id="question">What's your best quality?</span>
-    <form onchange="nextAns()">
-      <input type="radio" value="" id="a1"> <label for="a1" id="fa1">Confident</label> <br>
-      <input type="radio" value="" id="a2"> <label for="a2" id="fa2">Honest</label> <br>
-      <input type="radio" value="" id="a3"> <label for="a3" id="fa3">Focused</label>
-    </form>
+  <div class="card border-dark">
+    <div class="card-body">
+      <h2 class="card-title">Find Out What Pokemon You Are!</h2>
+      <h5 class="card-subtitle mt-3">
+        <span id="quiz-nr">Question 1: </span> <span id="question">What's your best quality?</span>
+      </h5>
+      <p class="card-text">
+        <form id="form" onchange="nextAns()">
+          <input type="checkbox" value="" id="a1"> <label for="a1" id="fa1">Confident</label> <br>
+          <input type="checkbox" value="" id="a2"> <label for="a2" id="fa2">Honest</label> <br>
+          <input type="checkbox" value="" id="a3"> <label for="a3" id="fa3">Focused</label>
+        </form>
+      </p>
+      <br>
+      <button id="whatPok" disabled="true" onclick="window.open('multiplechar.html')">Check your stats!</button>
+    </div>
   </div>
 
   <script src="js/quiz.js"></script>

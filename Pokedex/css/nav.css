@@ -9,6 +9,9 @@
   .links {
     display: inline-block;
   }
+  a:hover{
+    color: black;
+  }
   .flex {
     display: flex;
     gap: var(--gap, 1rem);
@@ -35,7 +38,6 @@
   .primary-navigation a {
     text-decoration: none;
   }
-  
   @media (max-width: 49em) {
     .primary-navigation {
       --gap: 2em;

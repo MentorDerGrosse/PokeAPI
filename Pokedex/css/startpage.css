@@ -116,5 +116,10 @@
 
   @media screen and (max-width: 1134px) { .text-information{ width: 80%; } }
 
-  @media screen and (max-width: 714px) { .text-information{ width: 100%; } }
+  @media screen and (max-width: 714px) { 
+    .text-information{ width: 100%; } 
+    body{
+      background-size: 220vh;
+    }
+  }
   

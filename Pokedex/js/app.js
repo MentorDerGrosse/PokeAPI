@@ -13,7 +13,6 @@ const pokeListItems = document.querySelectorAll('.list-item');
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
 
-
 // constants and variables
 const TYPES = [
   'normal', 'fighting', 'flying',
@@ -25,7 +24,6 @@ const TYPES = [
 ];
 let prevUrl = null;
 let nextUrl = null;
-
 
 // Functions
 const capitalize = (str) => str[0].toUpperCase() + str.substr(1);
